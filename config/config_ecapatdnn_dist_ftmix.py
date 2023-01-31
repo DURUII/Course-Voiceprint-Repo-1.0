@@ -1,11 +1,11 @@
 class Config(object):
-    save_dir = 'Vox2dev_80FBANK_ECAPATDNN_AAMsoftmax_256_dist'
-    train_dir = 'vox2dev'
-    val_dir = 'vox1test'
+    save_dir = 'Vox2dev_80FBANK_ECAPATDNN_AAMsoftmax_256_dist/ftmix'
+    train_dir = 'himia_ftmix'
+    val_dir = 'himia_eval'
 
     workers = 4
-    batch_size = 32
-    max_frames = 300
+    batch_size = 96
+    max_frames = 150
 
     data_wavaug = True
     data_specaug = True
@@ -32,11 +32,15 @@ class Config(object):
     angular_s = 32
 
     warm_up_epoch = 2
+    lr = 0.0005
+    # lr = 0.00009
+    # lr = 0.000005
+
     epochs = 100
-    # before loss:nan epoch 32, attribute lr = 0.01
-    lr = 0.00005
-    start_epoch = 32
-    load_classifier = True
+    start_epoch = 43 + 1
+    load_classifier = False
+    # start_epoch = 59
+    # load_classifier = True
 
     seed = 3007
 
