@@ -1,0 +1,6 @@
+model/__pycache__/
+tools/__pycache__/
+config/__pycache__/
+__pycache__/
+.idea/
+data/himia_test/wav/
