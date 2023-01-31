@@ -43,7 +43,7 @@ def main():
         model = nn.DataParallel(model)
         eer, cost = validate(model,val_dataloader, args.epoch,opt)
         print('Epoch %d\t  EER %.4f\t  cost %.4f\n' % ( args.epoch, eer*100, cost))
-  
+
 def get_eer(embd_dict, trial_file):
     true_score = []
     false_score = []
@@ -77,8 +77,44 @@ def validate(model,val_dataloader,epoch,opt):
     
     return eer, cost
 
+def get_eer_HIMIA(embd_dict, trial_file, enrol_multi=False, test_multi=True,embd_dim=256,ch=16):
+    true_score = []
+    false_score = []
+
+    with open(trial_file) as fh:
+        for line in fh:
+            line = line.strip()
+            utt1, utt2, key = line.split()
+
+            if enrol_multi:
+                embd1=np.zeros(embd_dim)
+                for i in range(ch):
+                    # utt1_tmp=utt1+'_{}'.format(str(i).zfill(2))
+                    utt1_tmp=utt1.replace('{}',str(i).zfill(2))
+                    embd1+=embd_dict[utt1_tmp]
+            else:
+                embd1=embd_dict[utt1]
+            
+
+            if test_multi:
+                embd2=np.zeros(embd_dim)
+                for i in range(ch):
+                    # utt2_tmp=utt2+'_{}'.format(str(i).zfill(2))
+                    utt2_tmp=utt2.replace('{}',str(i).zfill(2))
+                    embd2+=embd_dict[utt2_tmp]
+            else:
+                embd2=embd_dict[utt2]
+
+
+            result = 1 - spatial.distance.cosine(embd1, embd2)
+            if key == '1':
+                true_score.append(result)
+            elif key == '0':
+                false_score.append(result)  
+    eer, threshold, mindct, threashold_dct = compute_eer(np.array(true_score), np.array(false_score))
+    return eer, threshold, mindct, threashold_dct
+
 
 if __name__ == '__main__':
-    
     main()
-    
+    print('Finished!')
