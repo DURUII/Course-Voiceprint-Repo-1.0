@@ -16,7 +16,11 @@ The code has been tested using the following environment:
 - **Linux OS: Ubuntu 20.04.5 LTS, 64-bit**
 - **Graphics: NVIDIA GeForce RTX 3080 Laptop**
 
-The epitome of the most significant ideas are in `DURUII` , including: nn.Conv1d, Feature Augmentation, Model.
+The epitome of the most significant ideas are in `DURUII` , including: 
+
+| nn.Conv1d | Feature Augmentation | Model  |
+| :-------: | :-----------------:  | :---: |
+|<a href="https://colab.research.google.com/github/DURUII/HIMIA-Crash-Course/blob/main/DURUII/【A0】nn.Conv1d.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>|<a href="https://colab.research.google.com/github/DURUII/HIMIA-Crash-Course/blob/main/DURUII/【B0】Feature_Augmentation_Example.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>|<a href="https://colab.research.google.com/github/DURUII/HIMIA-Crash-Course/blob/main/DURUII/【C0】Model Architecture.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>|
 
 # 1. System Introduction
 
