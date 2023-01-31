@@ -322,6 +322,9 @@ Epoch 41	  lr 0.000050	  <font color="#EF2929"><b>EER</b></font> 1.3560	  cost 0
 Epoch 42	  lr 0.000005	  <font color="#EF2929"><b>EER</b></font> 1.2337	  cost 0.1385
 Epoch 43	  lr 0.000005	  <font color="#EF2929"><b>EER</b></font> 1.2071	  cost 0.1338</pre>
 
+
+
+
 ![img](https://github.com/DURUII/DURUII/blob/14758707f790191941ec3df0f600ddd77d02726c/res/himia/val.svg)
 
 ## Step 3. Training Far-field model (finetuning with Vox2dev and HI-MIA data)
